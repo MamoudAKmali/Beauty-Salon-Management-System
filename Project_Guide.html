@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل مشروع صالون التجميل</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d4af37;
+            --secondary: #e5989b;
+            --dark: #2b2b2b;
+            --light: #fff5f5;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-top: 8px solid var(--primary);
+        }
+
+        h1.main-title {
+            text-align: center;
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #eee;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--secondary);
+        }
+
+        .card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--secondary);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: right;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        .highlight {
+            background: #eef2ff;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #4f46e5;
+            font-weight: bold;
+            font-family: monospace;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* تصميم الهيكلية من اليسار لليمين */
+        .tree-structure {
+            direction: ltr;
+            text-align: left;
+            background: #282c34;
+            color: #abb2bf;
+            padding: 25px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .tree-structure .comment {
+            color: #7f848e;
+            font-family: 'Tajawal', sans-serif;
+            margin-left: 10px;
+            direction: rtl;
+            display: inline-block;
+        }
+
+        /* كود الاتصال */
+        .code-block {
+            direction: ltr;
+            text-align: left;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+
+        .code-block .keyword {
+            color: #569cd6;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .code-block .comment-code {
+            color: #6a9955;
+        }
+
+        .code-block .variable {
+            color: #9cdcfe;
+        }
+
+        .line-explain {
+            display: flex;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .line-explain .code-part {
+            background: #2b2b2b;
+            color: #fff;
+            padding: 10px 15px;
+            direction: ltr;
+            font-family: monospace;
+            min-width: 300px;
+        }
+
+        .line-explain .text-part {
+            padding: 10px 15px;
+            flex-grow: 1;
+        }
+
+        /* قائمة التشغيل كخطوات واضحة */
+        ol.steps-list {
+            padding-right: 20px;
+            counter-reset: custom-counter;
+            list-style: none;
+        }
+
+        ol.steps-list li {
+            margin-bottom: 20px;
+            counter-increment: custom-counter;
+            position: relative;
+            padding-right: 45px;
+            font-size: 1.1rem;
+        }
+
+        ol.steps-list li::before {
+            content: counter(custom-counter);
+            position: absolute;
+            right: 0;
+            top: -2px;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .admin-creds {
+            background: #2b2b2b;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .admin-creds span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        @media print {
+            @page {
+                margin: 0; /* هذا يخفي الرابط ورقم الصفحة من المتصفح */
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: #fff;
+                padding: 1.5cm; /* نعوض الهامش هنا بعد إزالته من الـ page */
+            }
+
+            .container {
+                box-shadow: none;
+                border-top: none;
+                padding: 0;
+            }
+
+            .section,
+            .card,
+            table,
+            .line-explain {
+                page-break-inside: avoid;
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+
+            /* إصلاح مشكلة الألوان الداكنة في الطباعة */
+            .line-explain .code-part,
+            .admin-creds,
+            .tree-structure {
+                background-color: #f1f1f1 !important;
+                color: #000 !important;
+                border: 1px solid #ccc !important;
+            }
+            
+            .code-block {
+                background-color: #f8f9fa !important;
+                color: #000 !important;
+                border: 1px solid #ccc !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="main-title">دليل شامل لمشروع صالون التجميل</h1>
+        <p class="subtitle">هذا الملف مخصص لمراجعة الفريق وفهم تفاصيل المشروع قبل المناقشة.</p>
+
+        <!-- 1. فكرة المشروع -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> 1. فكرة المشروع والخدمات</h2>
+            <div class="card">
+                <p><strong>الفكرة الأساسية:</strong> موقع ويب وتطبيق إداري لصالون تجميل نسائي. يهدف إلى أتمتة الحجوزات
+                    وإدارتها إلكترونياً.</p>
+                <ul>
+                    <li><strong>للعملاء:</strong> إنشاء حساب، استعراض الخدمات، حجز المواعيد.</li>
+                    <li><strong>للإدارة:</strong> إضافة وتعديل الخدمات، ومتابعة الحجوزات والموافقة عليها.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. التقنيات -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-code"></i> 2. التقنيات المستخدمة</h2>
+            <ul>
+                <li><strong>الواجهة الأمامية:</strong> HTML, CSS, JavaScript, Bootstrap 5.</li>
+                <li><strong>البرمجة الخلفية:</strong> لغة PHP 8 لمعالجة العمليات.</li>
+                <li><strong>قاعدة البيانات:</strong> MySQL، واستخدمنا اتصال <strong>PDO</strong> للحماية القصوى.</li>
+            </ul>
+        </div>
+
+        <!-- 3. الجداول -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-database"></i> 3. جميع جداول قاعدة البيانات</h2>
+            <p>قاعدة البيانات <strong>beauty_salon_db</strong> تحتوي على 5 جداول مترابطة بالكامل:</p>
+
+            <div class="card">
+                <h3>1. جدول customers (العملاء والمدراء)</h3>
+                <table>
+                    <tr>
+                        <th>الحقل</th>
+                        <th>الشرح</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>مفتاح أساسي (Primary Key)</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>الاسم الكامل للمستخدم</td>
+                    </tr>
+                    <tr>
+                        <td>phone</td>
+                        <td>رقم الجوال (غير مكرر UNIQUE)</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>البريد الإلكتروني للوصول للحساب (غير مكرر UNIQUE)</td>
+                    </tr>
+                    <tr>
+                        <td>password</td>
+                        <td>كلمة المرور مشفرة</td>
+                    </tr>
+                    <tr>
+                        <td>role</td>
+                        <td>يحدد نوع الحساب: customer (عميل عادي) أو admin (مدير)</td>
+                    </tr>
+                    <tr>
+                        <td>loyalty_points</td>
+                        <td>نقاط الولاء المكتسبة من الحجوزات</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>2. جدول services (الخدمات)</h3>
+                <table>
+                    <tr>
+                        <th>الحقل</th>
+                        <th>الشرح</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>مفتاح أساسي للخدمة</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>اسم الخدمة (قص، صبغة..)</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>تصنيف الخدمة</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>وصف وتفاصيل الخدمة</td>
+                    </tr>
+                    <tr>
+                        <td>price</td>
+                        <td>سعر الخدمة (DECIMAL)</td>
+                    </tr>
+                    <tr>
+                        <td>duration_minutes</td>
+                        <td>المدة المستغرقة بالدقائق</td>
+                    </tr>
+                    <tr>
+                        <td>image</td>
+                        <td>مسار صورة الخدمة</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>3. جدول employees (الموظفات)</h3>
+                <table>
+                    <tr>
+                        <th>الحقل</th>
+                        <th>الشرح</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>مفتاح أساسي للموظفة</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>اسم الموظفة المختصة</td>
+                    </tr>
+                    <tr>
+                        <td>specialization</td>
+                        <td>تخصصها (مثال: أظافر، مكياج)</td>
+                    </tr>
+                    <tr>
+                        <td>phone</td>
+                        <td>رقم التواصل</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>4. جدول appointments (الحجوزات)</h3>
+                <table>
+                    <tr>
+                        <th>الحقل</th>
+                        <th>الشرح</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>مفتاح أساسي للحجز</td>
+                    </tr>
+                    <tr>
+                        <td>customer_id</td>
+                        <td>مفتاح أجنبي (يربط الحجز بالعميل الذي طلبه)</td>
+                    </tr>
+                    <tr>
+                        <td>service_id</td>
+                        <td>مفتاح أجنبي (يربط الحجز بالخدمة المطلوبة)</td>
+                    </tr>
+                    <tr>
+                        <td>employee_id</td>
+                        <td>مفتاح أجنبي (يربط الحجز بالموظفة التي ستنفذه)</td>
+                    </tr>
+                    <tr>
+                        <td>appointment_date</td>
+                        <td>تاريخ الحجز (DATE)</td>
+                    </tr>
+                    <tr>
+                        <td>appointment_time</td>
+                        <td>وقت الحجز (TIME)</td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>حالة الحجز (pending, confirmed, completed, cancelled)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>5. جدول reviews (التقييمات)</h3>
+                <table>
+                    <tr>
+                        <th>الحقل</th>
+                        <th>الشرح</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>مفتاح أساسي للتقييم</td>
+                    </tr>
+                    <tr>
+                        <td>customer_id / service_id / employee_id</td>
+                        <td>مفاتيح أجنبية للعميل والخدمة والموظفة المقيمة</td>
+                    </tr>
+                    <tr>
+                        <td>rating</td>
+                        <td>التقييم من 1 إلى 5</td>
+                    </tr>
+                    <tr>
+                        <td>comment</td>
+                        <td>نص التقييم المكتوب</td>
+                    </tr>
+                    <tr>
+                        <td>is_approved</td>
+                        <td>هل التقييم معتمد للظهور من الإدارة؟ (0 أو 1)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4. هيكلية المشروع -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-folder-tree"></i> 4. هيكلية ومسارات المشروع</h2>
+            <p>هنا عرض تنظيمي من اليسار لليمين يشرح مكان ووظيفة كل ملف في المشروع:</p>
+
+            <div class="tree-structure">
+                Beauty-Salon/
+                <br>├── admin/ <span class="comment"># مجلد لوحة تحكم الإدارة بالكامل</span>
+                <br>│ ├── index.php <span class="comment"># الرئيسية للإدارة (تعرض الإحصائيات)</span>
+                <br>│ ├── services.php <span class="comment"># صفحة إدارة الخدمات (إضافة/تعديل/حذف)</span>
+                <br>│ ├── header.php <span class="comment"># الهيدر المخصص للإدارة ويتحقق من الصلاحيات</span>
+                <br>│ └── footer.php <span class="comment"># الفوتر المخصص للإدارة</span>
+                <br>├── assets/ <span class="comment"># مجلد الملحقات البصرية</span>
+                <br>│ ├── css/
+                <br>│ │ └── style.css <span class="comment"># ملف الـ CSS المخصص لتلوين وتنسيق الموقع</span>
+                <br>│ └── img/ <span class="comment"># مجلد الصور المرفوعة للموقع</span>
+                <br>├── database/
+                <br>│ └── schema.sql <span class="comment"># ملف كود الـ SQL لإنشاء الجداول في القاعدة</span>
+                <br>├── includes/ <span class="comment"># مجلد الملفات المشتركة</span>
+                <br>│ ├── db.php <span class="comment"># الملف الأهم: كود الاتصال بقاعدة البيانات</span>
+                <br>│ ├── header.php <span class="comment"># الهيدر للزوار والعملاء</span>
+                <br>│ └── footer.php <span class="comment"># الفوتر للزوار والعملاء</span>
+                <br>├── index.php <span class="comment"># الصفحة الرئيسية للموقع (واجهة الزوار)</span>
+                <br>├── login.php <span class="comment"># صفحة تسجيل الدخول بالبريد الإلكتروني</span>
+                <br>├── register.php <span class="comment"># صفحة إنشاء حساب عميل جديد</span>
+                <br>├── book.php <span class="comment"># صفحة فورم حجز موعد جديد</span>
+                <br>├── services.php <span class="comment"># صفحة استعراض الخدمات وقراءتها للعملاء</span>
+                <br>├── reviews.php <span class="comment"># صفحة عرض تقييمات العملاء</span>
+                <br>└── logout.php <span class="comment"># ملف تسجيل الخروج وإنهاء الجلسة</span>
+            </div>
+        </div>
+
+        <!-- 5. شرح الاتصال -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-link"></i> 5. طريقة الاتصال بقاعدة البيانات (PDO)</h2>
+            <p>ربطنا المشروع بالقاعدة عبر مكتبة <strong>PDO</strong> الموجودة في PHP لأنها تحمينا من ثغرات الحقن (SQL
+                Injection). الكود موجود في ملف <code>includes/db.php</code> وهو كالتالي (مخصص للتشغيل المحلي):</p>
+
+            <div class="code-block">
+                <span class="keyword">&lt;?php</span>
+                <span class="comment-code">// تعريف ثوابت الاتصال</span>
+                <span class="keyword">define</span>(<span class="string">'DB_HOST'</span>, <span
+                    class="string">'localhost'</span>);
+                <span class="keyword">define</span>(<span class="string">'DB_NAME'</span>, <span
+                    class="string">'beauty_salon_db'</span>);
+                <span class="keyword">define</span>(<span class="string">'DB_USER'</span>, <span
+                    class="string">'root'</span>);
+                <span class="keyword">define</span>(<span class="string">'DB_PASS'</span>, <span
+                    class="string">''</span>);
+                <span class="keyword">define</span>(<span class="string">'DB_CHARSET'</span>, <span
+                    class="string">'utf8mb4'</span>);
+
+                <span class="comment-code">// تجهيز نص الاتصال (DSN)</span>
+                <span class="variable">$dsn</span> = <span class="string">"mysql:host="</span> . DB_HOST . <span
+                    class="string">";dbname="</span> . DB_NAME . <span class="string">";charset="</span> . DB_CHARSET;
+
+                <span class="comment-code">// إعدادات الحماية وكيفية جلب البيانات</span>
+                <span class="variable">$options</span> = [
+                PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE =&gt; PDO::FETCH_ASSOC,
+                ];
+
+                <span class="keyword">try</span> {
+                <span class="comment-code">// فتح الاتصال وتخزينه في المتغير $pdo</span>
+                <span class="variable">$pdo</span> = <span class="keyword">new</span> PDO(<span
+                    class="variable">$dsn</span>, DB_USER, DB_PASS, <span class="variable">$options</span>);
+                } <span class="keyword">catch</span> (PDOException <span class="variable">$e</span>) {
+                <span class="keyword">die</span>(<span class="string">"Connection failed: "</span> . <span
+                    class="variable">$e</span>-&gt;getMessage());
+                }
+            </div>
+
+            <h3>شرح الكود سطر بسطر:</h3>
+            <div class="line-explain">
+                <div class="code-part">define('DB_HOST', 'localhost');</div>
+                <div class="text-part">نعرف ثابت باسم الخادم. في التشغيل المحلي دائماً يكون localhost.</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">define('DB_NAME', 'beauty_salon_db');</div>
+                <div class="text-part">نضع هنا اسم قاعدة البيانات التي أنشأناها في phpMyAdmin.</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">define('DB_USER', 'root');</div>
+                <div class="text-part">اسم المستخدم لـ XAMPP يكون افتراضياً root وكلمة المرور فارغة.</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">$dsn = "mysql:host=..."</div>
+                <div class="text-part">نقوم بدمج المتغيرات السابقة لتكوين سطر رابط الاتصال (Data Source Name).</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION</div>
+                <div class="text-part">هذا الخيار يخبر الـ PDO بأن يظهر لنا رسالة خطأ واضحة (Exception) لو حدثت أي مشكلة
+                    بقاعدة البيانات ليسهل تتبعها.</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">$pdo = new PDO(...)</div>
+                <div class="text-part">أهم سطر! هنا يتم إنشاء كائن الاتصال الفعلي وإرساله للمتغير `$pdo`. أي صفحة تريد
+                    تنفيذ أمر تستدعي هذا المتغير.</div>
+            </div>
+            <div class="line-explain">
+                <div class="code-part">try { ... } catch { ... }</div>
+                <div class="text-part">بلوك (المحاولة والاصطياد). نحاول فتح الاتصال داخل `try`، وإذا فشل نصطاد الخطأ في
+                    `catch` ونوقف تشغيل الموقع بدالة `die`.</div>
+            </div>
+        </div>
+
+        <!-- 6. دليل التثبيت -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-person-running"></i> 6. خطوات التثبيت والتشغيل المحلي خطوة
+                بخطوة</h2>
+            <p>لتشغيل المشروع على الجهاز الخاص بكن يجب اتباع هذه الخطوات حرفياً:</p>
+
+            <ol class="steps-list">
+                <li><strong>استلام وفك الضغط:</strong> عندما يصلكم ملف المشروع كملف مضغوط (.zip)، قوموا باستخراجه
+                    (Extract Here). سينتج مجلد اسمه <code>Beauty-Salon</code>.</li>
+                <li><strong>نقل الملف لمكانه الصحيح:</strong> خذوا المجلد <code>Beauty-Salon</code> بالكامل وقوموا بلصقه
+                    داخل مجلد السيرفر المحلي في هذا المسار: <span class="highlight">C:\xampp\htdocs\</span></li>
+                <li><strong>تشغيل XAMPP:</strong> افتحوا برنامج XAMPP Control Panel. اضغطوا على زر
+                    <strong>Start</strong> بجانب كل من <strong>Apache</strong> و <strong>MySQL</strong> حتى تظهر خلفيتهم
+                    باللون الأخضر.</li>
+                <li><strong>إنشاء قاعدة البيانات:</strong> افتحوا المتصفح (كروم أو ايدج) واكتبوا الرابط <span
+                        class="highlight">http://localhost/phpmyadmin</span>. اضغطوا من القائمة الجانبية على "New". في
+                    حقل اسم القاعدة اكتبوا <code>beauty_salon_db</code> واختاروا ترميز `utf8mb4_unicode_ci` ثم اضغطوا
+                    Create.</li>
+                <li><strong>استيراد الجداول (Import):</strong> بعد أن تفتح قاعدة البيانات الفارغة، اضغطوا من الأعلى على
+                    تبويب <strong>Import</strong>. ثم اضغطوا على "Choose File"، واذهبوا إلى مسار مشروعنا
+                    <code>C:\xampp\htdocs\Beauty-Salon\database\</code> واختاروا ملف <code>schema.sql</code>. انزلوا
+                    لأسفل الشاشة واضغطوا زر Import / Go لزرع الجداول.</li>
+                <li><strong>تشغيل الموقع:</strong> تم التجهيز! افتحوا المتصفح واكتبوا الرابط <span
+                        class="highlight">http://localhost/Beauty-Salon/</span> سيعمل الموقع معكم بنجاح.</li>
+            </ol>
+        </div>
+
+        <!-- 7. بيانات الإدارة -->
+        <div class="section">
+            <h2 class="section-title"><i class="fa-solid fa-user-shield"></i> 7. بيانات دخول لوحة تحكم الإدارة (Admin)
+            </h2>
+            <p>لتجربة الموقع كإدارة ورؤية لوحة التحكم والإحصائيات، استخدموا هذه البيانات في صفحة تسجيل الدخول الموحدة:
+            </p>
+            <div class="admin-creds">
+                البريد الإلكتروني للإدارة: <span>admin@salon.com</span> <br>
+                كلمة المرور: <span>admin123</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

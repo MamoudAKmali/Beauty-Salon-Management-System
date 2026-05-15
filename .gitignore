@@ -1,0 +1,35 @@
+# ===================================
+# Beauty Salon - .gitignore
+# ===================================
+
+# ملفات الإعدادات الحساسة (لا ترفعها!)
+# Sensitive config - DO NOT UPLOAD
+# includes/db.php
+
+# ملفات النظام / System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ملفات المحرر / Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ملفات PHP مؤقتة / PHP Temp
+*.log
+*.cache
+/cache/
+/tmp/
+
+# ملفات الرفع المؤقتة / Temp Uploads
+/uploads/tmp/
+
+# ملفات Composer (إن وُجدت)
+/vendor/
+composer.lock
+
+# ملفات Node (إن وُجدت)
+node_modules/
+npm-debug.log
